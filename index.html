@@ -16,10 +16,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px;
+            padding: 15px 10px;
             overflow-x: hidden;
         }
 
+        /* Pantalla de Entrada (Portada) */
         #welcomeOverlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -36,7 +37,7 @@
 
         .welcome-title {
             font-family: 'Cinzel', serif;
-            font-size: 2.6rem;
+            font-size: 2.5rem;
             color: #ffffff;
             text-shadow: 0 0 20px rgba(230, 190, 80, 0.8);
             margin-bottom: 8px;
@@ -111,7 +112,7 @@
             50% { opacity: 1; transform: scale(1.5); }
         }
 
-        /* Contenedor Principal Ajustado al tamaño de la imagen */
+        /* Contenedor Principal Adaptable */
         .card-wrapper {
             position: relative;
             z-index: 10;
@@ -120,45 +121,38 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(180, 100, 240, 0.3);
-            background: #10021c;
-        }
-
-        .frame-img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Capa de Texto posicionada exactamente DENTRO del marco de la imagen */
-        .content-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 0 10% 8% 10%;
+            background: radial-gradient(circle at 50% 20%, #2a0845 0%, #10021c 100%);
+            border: 2px solid #e6be50;
+            padding: 20px 18px 30px 18px;
             text-align: center;
+        }
+
+        .header-img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 12px;
+            margin: 0 auto 10px auto;
+            display: block;
+            box-shadow: 0 0 20px rgba(230, 190, 80, 0.3);
         }
 
         .title-main {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.4rem, 5vw, 1.9rem);
+            font-size: 2.1rem;
             color: #f1d378;
-            text-shadow: 0 0 12px rgba(230, 190, 80, 0.9), 0 2px 4px rgba(0,0,0,0.9);
+            text-shadow: 0 0 12px rgba(230, 190, 80, 0.9);
             font-weight: 700;
             letter-spacing: 1px;
+            margin-top: 5px;
         }
 
         .name {
             font-family: 'Cinzel', serif;
-            font-size: clamp(2.4rem, 8.5vw, 3.2rem);
+            font-size: 3.5rem;
             color: #ffffff;
-            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 12px #e6be50, 0 3px 6px rgba(0,0,0,0.9);
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 12px #e6be50;
             line-height: 1;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             font-weight: 900;
         }
 
@@ -166,9 +160,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 6px 0;
+            margin: 12px 0;
             color: #e6be50;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         .divider-gold::before, .divider-gold::after {
@@ -176,98 +170,115 @@
             flex: 1;
             height: 1px;
             background: linear-gradient(90deg, transparent, #e6be50, transparent);
-            margin: 0 8px;
+            margin: 0 10px;
         }
 
         .label-gold {
-            font-size: clamp(0.85rem, 3vw, 0.95rem);
+            font-size: 0.95rem;
             color: #f1d378;
             font-weight: 700;
             margin-bottom: 2px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.9);
         }
 
         .value-white {
-            font-size: clamp(1rem, 3.5vw, 1.15rem);
+            font-size: 1.2rem;
             font-weight: 700;
             color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0,0,0,0.9);
-            margin-bottom: 6px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
+        }
+
+        .family-box {
+            background: rgba(16, 2, 28, 0.65);
+            border: 1px solid rgba(230, 190, 80, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin: 12px 0;
         }
 
         .quote {
             font-style: italic;
             font-family: 'Playfair Display', serif;
-            font-size: clamp(0.75rem, 2.7vw, 0.85rem);
+            font-size: 0.92rem;
             color: #e3d2f5;
-            margin: 6px 4px;
-            line-height: 1.4;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+            margin: 14px 4px;
+            line-height: 1.5;
         }
 
         .info-list {
             text-align: left;
-            margin: 6px 0;
+            margin: 12px 0;
             width: 100%;
         }
 
         .info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 6px;
-            background: rgba(16, 2, 28, 0.82);
-            padding: 8px 12px;
-            border-radius: 10px;
-            border: 1px solid rgba(230, 190, 80, 0.4);
-            backdrop-filter: blur(4px);
+            margin-bottom: 10px;
+            background: rgba(16, 2, 28, 0.75);
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(230, 190, 80, 0.35);
         }
 
         .info-icon {
-            font-size: 1.1rem;
-            margin-right: 10px;
+            font-size: 1.3rem;
+            margin-right: 12px;
             color: #f1d378;
-            width: 22px;
+            width: 26px;
             text-align: center;
         }
 
         .info-text-title {
             color: #f1d378;
-            font-size: clamp(0.75rem, 2.6vw, 0.85rem);
+            font-size: 0.9rem;
             font-weight: 700;
         }
 
         .info-text-detail {
             color: #ffffff;
-            font-size: clamp(0.85rem, 3vw, 0.95rem);
+            font-size: 1.05rem;
             font-weight: 700;
         }
 
         .address-sub {
-            font-size: clamp(0.68rem, 2.3vw, 0.75rem);
+            font-size: 0.8rem;
             color: #c9b0e3;
-            margin-top: 1px;
+            margin-top: 2px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 14px 0;
         }
 
         .btn-map {
-            display: inline-block;
+            display: block;
             background: linear-gradient(135deg, #fff3ba 0%, #e6be50 50%, #997412 100%);
             color: #10021c;
             font-weight: 800;
             text-decoration: none;
-            padding: 8px 20px;
+            padding: 12px 18px;
             border-radius: 25px;
-            font-size: clamp(0.7rem, 2.5vw, 0.78rem);
-            letter-spacing: 1px;
-            box-shadow: 0 0 15px rgba(230, 190, 80, 0.6);
-            margin: 6px 0 8px 0;
+            font-size: 0.82rem;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 15px rgba(230, 190, 80, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .btn-map:active {
+            transform: scale(0.98);
         }
 
         .footer-banner {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: clamp(0.95rem, 3.2vw, 1.1rem);
+            font-size: 1.25rem;
             color: #f1d378;
-            text-shadow: 0 0 10px rgba(230, 190, 80, 0.5), 0 2px 4px rgba(0,0,0,0.9);
+            text-shadow: 0 0 10px rgba(230, 190, 80, 0.5);
+            margin-top: 10px;
         }
 
         .music-btn {
@@ -289,8 +300,9 @@
 </head>
 <body>
 
+    <!-- Portada de Bienvenida -->
     <div id="welcomeOverlay">
-        <div class="welcome-sub">TE INVITAMOS A CELEBRAR LOS</div>
+        <div class="welcome-sub">TE INVITAMOS A CELEBRAR</div>
         <div class="welcome-title">MIS XV AÑOS - YARETZI</div>
         <button class="btn-enter" onclick="openInvitation()">✨ ABRIR INVITACIÓN ✉️</button>
     </div>
@@ -301,68 +313,81 @@
     <audio id="bgAudio" loop src="cancion.mp3"></audio>
 
     <div class="card-wrapper">
-        <!-- Imagen de Fondo Completa -->
-        <img src="fondo.jpg" alt="Marco Barroco" class="frame-img">
+        <!-- Ilustración de la Luna Dorada y Lavandas -->
+        <img src="fondo.jpg" alt="Luna Dorada y Lavandas" class="header-img">
 
-        <!-- Capa de Contenido Montada en Posición Absoluta sobre el área libre de la imagen -->
-        <div class="content-overlay">
-            <div class="title-main">Mis XV Años</div>
-            <div class="name">Yaretzi</div>
+        <div class="title-main">Mis XV Años</div>
+        <div class="name">Yaretzi</div>
 
-            <div class="divider-gold">❖ ❖ ❖</div>
+        <div class="divider-gold">❖ ❖ ❖</div>
 
-            <div class="label-gold" id="labelTipo">Invitada</div>
-            <div class="value-white" id="invitadoNombre">Antonia Dorantes</div>
+        <div class="label-gold" id="labelTipo">Invitada</div>
+        <div class="value-white" id="invitadoNombre">Antonia Dorantes</div>
 
-            <div class="quote">
-                “Hay momentos en la vida que son inolvidables,<br>
-                y compartirlos con los que más quiero<br>
-                los hace más especiales.”
-            </div>
+        <!-- Sección Padres y Padrinos -->
+        <div class="family-box">
+            <div class="label-gold">MIS PADRES</div>
+            <div class="value-white" style="font-size: 1.05rem; margin-bottom: 8px;">Pablo Orozco y Claudia Pacheco</div>
+            
+            <div class="divider-gold" style="margin: 6px 0;">❖</div>
 
-            <div class="divider-gold">❖</div>
-
-            <div class="info-list">
-                <div class="info-item">
-                    <div class="info-icon">📅</div>
-                    <div>
-                        <div class="info-text-title">Fecha:</div>
-                        <div class="info-text-detail">20 de febrero de 2027</div>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon">🕒</div>
-                    <div>
-                        <div class="info-text-title">Misa:</div>
-                        <div class="info-text-detail">18:00 hrs</div>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon">🕒</div>
-                    <div>
-                        <div class="info-text-title">Recepción:</div>
-                        <div class="info-text-detail">19:00 hrs</div>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-icon">📍</div>
-                    <div>
-                        <div class="info-text-title">Sala de fiestas:</div>
-                        <div class="info-text-detail">Los Ceibos</div>
-                        <div class="address-sub">Calle 50 x 149 y 151 • Cinco Colonias</div>
-                    </div>
-                </div>
-            </div>
-
-            <a href="https://maps.google.com/?q=Sala+de+fiestas+Los+Ceibos+Cinco+Colonias" target="_blank" class="btn-map">VER UBICACIÓN EN MAPS</a>
-
-            <div class="divider-gold">❖</div>
-
-            <div class="footer-banner">Contamos con tu presencia</div>
+            <div class="label-gold">MIS PADRINOS</div>
+            <div class="value-white" style="font-size: 1.05rem; margin-bottom: 0;">Manuel Ferraez y Alma Pacheco</div>
         </div>
+
+        <div class="quote">
+            “Hay momentos en la vida que son inolvidables,<br>
+            y compartirlos con los que más quiero<br>
+            los hace más especiales.”
+        </div>
+
+        <div class="divider-gold">❖</div>
+
+        <!-- Lista de Eventos y Horarios -->
+        <div class="info-list">
+            <div class="info-item">
+                <div class="info-icon">📅</div>
+                <div>
+                    <div class="info-text-title">Fecha:</div>
+                    <div class="info-text-detail">20 de febrero de 2027</div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">⛪</div>
+                <div>
+                    <div class="info-text-title">Misa:</div>
+                    <div class="info-text-detail">18:00 hrs</div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🎉</div>
+                <div>
+                    <div class="info-text-title">Recepción:</div>
+                    <div class="info-text-detail">19:00 hrs</div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div>
+                    <div class="info-text-title">Sala de fiestas:</div>
+                    <div class="info-text-detail">Los Ceibos</div>
+                    <div class="address-sub">Calle 50 x 149 y 151 • Cinco Colonias</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones de Ubicación GPS para la Misa y el Local -->
+        <div class="btn-group">
+            <a href="https://maps.google.com/?q=Iglesia" target="_blank" class="btn-map">⛪ UBICACIÓN DE LA IGLESIA</a>
+            <a href="https://maps.google.com/?q=Sala+de+fiestas+Los+Ceibos+Cinco+Colonias" target="_blank" class="btn-map">🎉 UBICACIÓN DEL LOCAL (LOS CEIBOS)</a>
+        </div>
+
+        <div class="divider-gold">❖</div>
+
+        <div class="footer-banner">Contamos con tu presencia</div>
     </div>
 
     <script>
