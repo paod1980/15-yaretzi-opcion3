@@ -9,14 +9,14 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: radial-gradient(circle at 50% 30%, #2a0845 0%, #0c0117 90%);
+            background: #0d0118;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 12px;
+            padding: 10px;
             overflow-x: hidden;
             position: relative;
         }
@@ -113,56 +113,25 @@
             50% { opacity: 1; transform: scale(1.5); }
         }
 
-        /* Tarjeta Principal Púrpura Real */
+        /* Tarjeta Principal usando la imagen de fondo */
         .card-container {
             position: relative;
             z-index: 10;
             width: 100%;
             max-width: 420px;
-            background: linear-gradient(180deg, rgba(38, 8, 62, 0.95) 0%, rgba(16, 2, 28, 0.98) 100%);
-            backdrop-filter: blur(12px);
+            background: url('fondo.jpg') no-repeat center center / cover;
             border-radius: 20px;
-            padding: 25px 22px;
+            padding: 190px 22px 35px 22px; /* Espacio arriba para no tapar la luna dorada */
             text-align: center;
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(180, 100, 240, 0.25);
-        }
-
-        /* Marco de Filigrana Dorado Doble */
-        .card-container::before {
-            content: '';
-            position: absolute;
-            top: 10px; left: 10px; right: 10px; bottom: 10px;
-            border: 2px solid #e6be50;
-            border-radius: 14px;
-            pointer-events: none;
-            box-shadow: inset 0 0 15px rgba(230, 190, 80, 0.3);
-        }
-
-        .card-container::after {
-            content: '';
-            position: absolute;
-            top: 16px; left: 16px; right: 16px; bottom: 16px;
-            border: 1px dashed rgba(230, 190, 80, 0.6);
-            border-radius: 10px;
-            pointer-events: none;
-        }
-
-        /* Cabecera con la ilustración de Luna Dorada con Lavandas */
-        .moon-header-img {
-            width: 100%;
-            max-width: 220px;
-            height: auto;
-            margin: 0 auto 5px auto;
-            display: block;
-            filter: drop-shadow(0 0 12px rgba(230, 190, 80, 0.8));
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(180, 100, 240, 0.3);
         }
 
         .title-main {
             font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             color: #f1d378;
-            text-shadow: 0 0 12px rgba(230, 190, 80, 0.7);
+            text-shadow: 0 0 12px rgba(230, 190, 80, 0.8), 0 2px 4px rgba(0,0,0,0.9);
             margin-top: 5px;
             font-weight: 700;
             letter-spacing: 1px;
@@ -170,9 +139,9 @@
 
         .name {
             font-family: 'Cinzel', serif;
-            font-size: 3.6rem;
+            font-size: 3.8rem;
             color: #ffffff;
-            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 12px #e6be50;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 12px #e6be50, 0 3px 6px rgba(0,0,0,0.9);
             line-height: 1;
             margin-bottom: 18px;
             font-weight: 900;
@@ -200,13 +169,14 @@
             color: #f1d378;
             font-weight: 700;
             margin-bottom: 4px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.9);
         }
 
         .value-white {
             font-size: 1.3rem;
             font-weight: 700;
             color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0,0,0,0.9);
             margin-bottom: 10px;
         }
 
@@ -217,6 +187,7 @@
             color: #e3d2f5;
             margin: 18px 8px;
             line-height: 1.6;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
         }
 
         .info-list {
@@ -231,10 +202,11 @@
             display: flex;
             align-items: center;
             margin-bottom: 12px;
-            background: rgba(16, 2, 28, 0.5);
+            background: rgba(16, 2, 28, 0.65);
             padding: 10px 14px;
             border-radius: 12px;
-            border: 1px solid rgba(230, 190, 80, 0.2);
+            border: 1px solid rgba(230, 190, 80, 0.3);
+            backdrop-filter: blur(4px);
         }
 
         .info-icon {
@@ -282,7 +254,7 @@
             font-style: italic;
             font-size: 1.35rem;
             color: #f1d378;
-            text-shadow: 0 0 10px rgba(230, 190, 80, 0.5);
+            text-shadow: 0 0 10px rgba(230, 190, 80, 0.5), 0 2px 4px rgba(0,0,0,0.9);
             margin-top: 8px;
         }
 
@@ -317,27 +289,6 @@
     <audio id="bgAudio" loop src="cancion.mp3"></audio>
 
     <div class="card-container">
-        <!-- Ilustración de Luna Dorada con Flores SVG Integrada directamente -->
-        <svg class="moon-header-img" viewBox="0 0 300 200">
-            <defs>
-                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#fff5c0" />
-                    <stop offset="50%" stop-color="#e6be50" />
-                    <stop offset="100%" stop-color="#997412" />
-                </linearGradient>
-            </defs>
-            <!-- Luna dorada realista -->
-            <path d="M 180 20 C 110 20 50 75 50 140 C 50 170 62 190 75 200 C 55 175 45 140 45 110 C 45 55 95 10 160 5 C 170 5 175 10 180 20 Z" fill="url(#goldGrad)" />
-            <!-- Flores y hojas de lavanda -->
-            <path d="M 70 120 C 40 90 20 110 40 140 Q 80 150 70 120 Z" fill="#b38add" />
-            <path d="M 90 100 C 60 70 40 90 60 120 Q 100 130 90 100 Z" fill="#d8b4f8" />
-            <path d="M 110 130 C 80 100 60 120 80 150 Q 120 160 110 130 Z" fill="#9b62cf" />
-            <circle cx="110" cy="120" r="10" fill="#ffffff" />
-            <circle cx="110" cy="120" r="4" fill="#e6be50" />
-            <circle cx="85" cy="135" r="7" fill="#e3c2ff" />
-            <circle cx="135" cy="125" r="8" fill="#e3c2ff" />
-        </svg>
-
         <div class="title-main">Mis XV Años</div>
         <div class="name">Yaretzi</div>
 
