@@ -16,11 +16,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px 10px;
+            padding: 20px 10px;
             overflow-x: hidden;
+            position: relative;
         }
 
-        /* Pantalla de Entrada (Portada) */
+        /* Pantalla de Entrada (Portada de Bienvenida) */
         #welcomeOverlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -73,6 +74,7 @@
             100% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 190, 80, 0.6); }
         }
 
+        /* Fondo de Estrellas y Burbujas Mágicas */
         .stars-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -112,7 +114,7 @@
             50% { opacity: 1; transform: scale(1.5); }
         }
 
-        /* Contenedor Principal Ajustado */
+        /* TARJETA PRINCIPAL MAESTRA CON LA IMAGEN DE FONDO PERFECTAMENTE ESTIRADA */
         .card-wrapper {
             position: relative;
             z-index: 10;
@@ -120,52 +122,51 @@
             max-width: 440px;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(180, 100, 240, 0.3);
-            background: radial-gradient(circle at 50% 20%, #2a0845 0%, #10021c 100%);
-            border: 2px solid #e6be50;
-            padding: 15px 15px 25px 15px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(180, 100, 240, 0.35);
+            border: 3px solid #e6be50;
+            padding: 40px 22px 40px 22px;
             text-align: center;
+            
+            /* Aquí aplicamos la imagen como fondo total estirado cubriendo absolutamente toda la tarjeta */
+            background-image: url('fondo.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        /* Header con el Marco y la Luna integrando el título dentro */
-        .frame-container {
-            position: relative;
-            width: 100%;
-            max-width: 390px;
-            margin: 0 auto 10px auto;
-        }
-
-        .frame-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 12px;
-        }
-
-        /* Overlay superpuesto exactamente en la parte inferior interior del marco (debajo de la luna) */
-        .header-text-overlay {
+        /* Capa semitransparente interna para asegurar legibilidad impecable sobre la textura de la imagen */
+        .card-wrapper::before {
+            content: '';
             position: absolute;
-            bottom: 8%;
-            left: 10%;
-            right: 10%;
-            text-align: center;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(12, 2, 24, 0.52);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Todo el contenido se eleva por encima de la capa semitransparente */
+        .card-wrapper > * {
+            position: relative;
+            z-index: 2;
         }
 
         .title-main {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.4rem, 4.8vw, 1.9rem);
+            font-size: 2.1rem;
             color: #f1d378;
             text-shadow: 0 0 12px rgba(230, 190, 80, 0.9), 0 2px 4px rgba(0,0,0,0.9);
             font-weight: 700;
             letter-spacing: 1px;
+            margin-top: 10px;
         }
 
         .name {
             font-family: 'Cinzel', serif;
-            font-size: clamp(2.3rem, 8vw, 3.2rem);
+            font-size: 3.4rem;
             color: #ffffff;
             text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 12px #e6be50, 0 3px 6px rgba(0,0,0,0.9);
-            line-height: 1;
+            line-height: 1.1;
+            margin-bottom: 12px;
             font-weight: 900;
         }
 
@@ -173,9 +174,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 10px 0;
+            margin: 14px 0;
             color: #e6be50;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         .divider-gold::before, .divider-gold::after {
@@ -183,7 +184,7 @@
             flex: 1;
             height: 1px;
             background: linear-gradient(90deg, transparent, #e6be50, transparent);
-            margin: 0 8px;
+            margin: 0 10px;
         }
 
         .label-gold {
@@ -191,81 +192,85 @@
             color: #f1d378;
             font-weight: 700;
             margin-bottom: 2px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.9);
         }
 
         .value-white {
             font-size: 1.2rem;
             font-weight: 700;
             color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0,0,0,0.9);
             margin-bottom: 8px;
         }
 
         .family-box {
-            background: rgba(16, 2, 28, 0.75);
-            border: 1px solid rgba(230, 190, 80, 0.35);
+            background: rgba(16, 2, 28, 0.85);
+            border: 1px solid rgba(230, 190, 80, 0.4);
             border-radius: 12px;
-            padding: 12px;
-            margin: 12px 0;
+            padding: 14px 12px;
+            margin: 14px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         .quote {
             font-style: italic;
             font-family: 'Playfair Display', serif;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #e3d2f5;
-            margin: 12px 4px;
+            margin: 16px 4px;
             line-height: 1.5;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
         }
 
         .info-list {
             text-align: left;
-            margin: 12px 0;
+            margin: 14px 0;
             width: 100%;
         }
 
         .info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
-            background: rgba(16, 2, 28, 0.75);
-            padding: 10px 12px;
+            margin-bottom: 12px;
+            background: rgba(16, 2, 28, 0.85);
+            padding: 12px 14px;
             border-radius: 12px;
-            border: 1px solid rgba(230, 190, 80, 0.35);
+            border: 1px solid rgba(230, 190, 80, 0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
 
         .info-icon {
-            font-size: 1.2rem;
-            margin-right: 10px;
+            font-size: 1.3rem;
+            margin-right: 12px;
             color: #f1d378;
-            width: 24px;
+            width: 26px;
             text-align: center;
         }
 
         .info-text-title {
             color: #f1d378;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             font-weight: 700;
         }
 
         .info-text-detail {
             color: #ffffff;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 700;
         }
 
         .address-sub {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: #c9b0e3;
-            margin-top: 2px;
+            margin-top: 3px;
             line-height: 1.3;
         }
 
         .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin: 14px 0;
+            gap: 12px;
+            margin: 18px 0;
         }
 
         .btn-map {
@@ -274,11 +279,11 @@
             color: #10021c;
             font-weight: 800;
             text-decoration: none;
-            padding: 11px 16px;
+            padding: 13px 18px;
             border-radius: 25px;
-            font-size: 0.8rem;
+            font-size: 0.84rem;
             letter-spacing: 0.5px;
-            box-shadow: 0 0 15px rgba(230, 190, 80, 0.5);
+            box-shadow: 0 0 20px rgba(230, 190, 80, 0.6);
             transition: transform 0.2s;
         }
 
@@ -289,12 +294,13 @@
         .footer-banner {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #f1d378;
-            text-shadow: 0 0 10px rgba(230, 190, 80, 0.5);
-            margin-top: 8px;
+            text-shadow: 0 0 10px rgba(230, 190, 80, 0.5), 0 2px 4px rgba(0,0,0,0.9);
+            margin-top: 12px;
         }
 
+        /* Botón de Música Flotante */
         .music-btn {
             position: fixed;
             bottom: 22px;
@@ -326,15 +332,10 @@
     <button class="music-btn" onclick="toggleAudio()" id="musicBtn">🎵</button>
     <audio id="bgAudio" loop src="cancion.mp3"></audio>
 
+    <!-- Tarjeta Principal con la imagen de la Luna y Marco estirada como fondo total -->
     <div class="card-wrapper">
-        <!-- Contenedor del Marco con la Luna y el Título Integrado -->
-        <div class="frame-container">
-            <img src="fondo.jpg" alt="Marco Barroco con Luna Dorada" class="frame-img">
-            <div class="header-text-overlay">
-                <div class="title-main">MIS XV AÑOS</div>
-                <div class="name">Yaretzi</div>
-            </div>
-        </div>
+        <div class="title-main">MIS XV AÑOS</div>
+        <div class="name">Yaretzi</div>
 
         <div class="divider-gold">❖ ❖ ❖</div>
 
