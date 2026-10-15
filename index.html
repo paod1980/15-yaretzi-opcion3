@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis XV Años - Yaretzi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Lato:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background-color: #10021c;
+            background-color: #030814;
             color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Lato', sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -21,11 +21,11 @@
             position: relative;
         }
 
-        /* Pantalla de Portada / Entrada */
         #welcomeOverlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 30%, #2b0847 0%, #0d0118 85%);
+            background: rgba(3, 8, 20, 0.95);
+            backdrop-filter: blur(8px);
             z-index: 999;
             display: flex;
             flex-direction: column;
@@ -37,44 +37,42 @@
         }
 
         .welcome-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.6rem;
+            font-family: 'Parisienne', cursive;
+            font-size: 3.8rem;
             color: #ffffff;
-            text-shadow: 0 0 20px rgba(230, 190, 80, 0.8);
-            margin-bottom: 8px;
-            font-weight: 800;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.9);
+            margin-bottom: 10px;
         }
 
         .welcome-sub {
-            font-family: 'Cinzel', serif;
-            color: #f1d378;
+            font-family: 'Playfair Display', serif;
+            color: #d4af37;
             letter-spacing: 4px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 35px;
             font-weight: 600;
         }
 
         .btn-enter {
-            background: linear-gradient(135deg, #fff3ba 0%, #e6be50 50%, #997412 100%);
-            color: #10021c;
-            font-weight: 800;
+            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa820a 100%);
+            color: #030814;
+            font-weight: 700;
             border: none;
             padding: 16px 36px;
             border-radius: 35px;
             font-size: 1.05rem;
             letter-spacing: 1px;
-            box-shadow: 0 0 25px rgba(230, 190, 80, 0.7);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
             cursor: pointer;
             animation: pulseBtn 2s infinite;
         }
 
         @keyframes pulseBtn {
-            0% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 190, 80, 0.6); }
-            50% { transform: scale(1.06); box-shadow: 0 0 30px rgba(230, 190, 80, 0.9); }
-            100% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 190, 80, 0.6); }
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
+            50% { transform: scale(1.06); box-shadow: 0 0 30px rgba(212, 175, 55, 0.9); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
         }
 
-        /* Capa de destellos y burbujas de fondo */
         .stars-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -84,10 +82,10 @@
 
         .bubble {
             position: absolute;
-            background: radial-gradient(circle at 30% 30%, rgba(240, 210, 255, 0.6), rgba(255, 255, 255, 0.05));
-            border: 1px solid rgba(230, 190, 80, 0.4);
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 50%;
-            box-shadow: 0 0 12px rgba(210, 150, 255, 0.3);
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
             animation: floatUp 7s infinite ease-in-out;
             pointer-events: none;
         }
@@ -104,7 +102,7 @@
             width: 5px; height: 5px;
             background: #ffffff;
             border-radius: 50%;
-            box-shadow: 0 0 10px #ffe680, 0 0 15px #ffffff;
+            box-shadow: 0 0 10px #ffd700, 0 0 15px #ffffff;
             animation: twinkle 2.5s infinite ease-in-out;
             pointer-events: none;
         }
@@ -114,163 +112,134 @@
             50% { opacity: 1; transform: scale(1.5); }
         }
 
-        /* Tarjeta Principal con la imagen de fondo */
         .card-container {
             position: relative;
             z-index: 10;
             width: 100%;
             max-width: 420px;
-            background: url('./fondo.jpg') no-repeat center center / cover, url('./fondo.jpeg') no-repeat center center / cover, linear-gradient(180deg, #26083e 0%, #10021c 100%);
-            border-radius: 20px;
-            padding: 190px 22px 35px 22px; /* Margen amplio para respetar la luna del fondo */
+            background: rgba(5, 12, 28, 0.88);
+            backdrop-filter: blur(12px);
+            border-radius: 25px;
+            border: 1.5px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 25px rgba(212, 175, 55, 0.3);
+            padding: 35px 22px;
             text-align: center;
             overflow: hidden;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(180, 100, 240, 0.3);
         }
 
-        .title-main {
-            font-family: 'Cinzel', serif;
-            font-size: 2.3rem;
-            color: #f1d378;
-            text-shadow: 0 0 12px rgba(230, 190, 80, 0.8), 0 2px 4px rgba(0,0,0,0.9);
+        .moon-header {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 10px auto;
+        }
+
+        .title-sub {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 5px;
+            font-size: 1.15rem;
+            color: #d4af37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
             margin-top: 5px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .name {
-            font-family: 'Cinzel', serif;
-            font-size: 3.8rem;
+            font-family: 'Parisienne', cursive;
+            font-size: 4.4rem;
             color: #ffffff;
-            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 12px #e6be50, 0 3px 6px rgba(0,0,0,0.9);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 10px #d4af37;
             line-height: 1;
-            margin-bottom: 18px;
-            font-weight: 900;
+            margin-bottom: 25px;
         }
 
-        .divider-gold {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .section-box {
+            border-top: 1px solid rgba(212, 175, 55, 0.35);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+            padding: 12px 0;
             margin: 14px 0;
-            color: #e6be50;
-            font-size: 1.1rem;
         }
 
-        .divider-gold::before, .divider-gold::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e6be50, transparent);
-            margin: 0 10px;
-        }
-
-        .label-gold {
-            font-size: 1.05rem;
-            color: #f1d378;
-            font-weight: 700;
+        .label {
+            font-size: 0.82rem;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 4px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+            font-weight: 500;
         }
 
-        .value-white {
-            font-size: 1.3rem;
-            font-weight: 700;
+        .value {
+            font-size: 1.1rem;
+            font-weight: 500;
             color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0,0,0,0.9);
-            margin-bottom: 10px;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
         }
 
         .quote {
             font-style: italic;
             font-family: 'Playfair Display', serif;
             font-size: 0.95rem;
-            color: #e3d2f5;
-            margin: 18px 8px;
-            line-height: 1.6;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+            color: #d0deef;
+            margin: 22px 10px;
+            line-height: 1.5;
         }
 
-        .info-list {
-            text-align: left;
-            display: inline-block;
-            margin: 12px 0;
-            width: 100%;
-            padding: 0 10px;
-        }
-
-        .info-item {
+        .details-grid {
             display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-            background: rgba(16, 2, 28, 0.65);
-            padding: 10px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(230, 190, 80, 0.3);
-            backdrop-filter: blur(4px);
+            justify-content: space-around;
+            margin: 18px 0;
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            padding: 12px 0;
         }
 
-        .info-icon {
-            font-size: 1.4rem;
-            margin-right: 14px;
-            color: #f1d378;
-            width: 28px;
-            text-align: center;
-        }
-
-        .info-text-title {
-            color: #f1d378;
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
-
-        .info-text-detail {
+        .detail-item .time {
+            font-size: 1.15rem;
+            font-weight: 600;
             color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: 700;
         }
 
-        .address-sub {
-            font-size: 0.82rem;
-            color: #c9b0e3;
-            margin-top: 2px;
-        }
+        .location-title { font-weight: 600; color: #ffffff; margin-top: 12px; font-size: 1rem; }
+        .location-address { font-size: 0.85rem; color: #b0c4de; margin-bottom: 18px; }
 
         .btn-map {
             display: inline-block;
-            background: linear-gradient(135deg, #fff3ba 0%, #e6be50 50%, #997412 100%);
-            color: #10021c;
-            font-weight: 800;
+            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa820a 100%);
+            color: #030814;
+            font-weight: 700;
             text-decoration: none;
-            padding: 12px 28px;
+            padding: 12px 24px;
             border-radius: 30px;
             font-size: 0.85rem;
             letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(230, 190, 80, 0.6);
-            margin: 14px 0 18px 0;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+            margin-bottom: 18px;
         }
 
         .footer-banner {
+            border: 1px solid #d4af37;
+            padding: 10px 22px;
+            border-radius: 25px;
+            display: inline-block;
             font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.35rem;
-            color: #f1d378;
-            text-shadow: 0 0 10px rgba(230, 190, 80, 0.5), 0 2px 4px rgba(0,0,0,0.9);
-            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #d4af37;
+            box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
         .music-btn {
             position: fixed;
             bottom: 22px;
             right: 22px;
-            background: linear-gradient(135deg, #fff3ba, #e6be50);
-            color: #10021c;
+            background: linear-gradient(135deg, #ffe066, #d4af37);
+            color: #030814;
             border: none;
             width: 50px;
             height: 50px;
             border-radius: 50%;
             font-size: 1.3rem;
-            box-shadow: 0 0 20px rgba(230, 190, 80, 0.8);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
             cursor: pointer;
             z-index: 100;
         }
@@ -278,76 +247,93 @@
 </head>
 <body>
 
-    <!-- Portada Inicial -->
     <div id="welcomeOverlay">
         <div class="welcome-sub">TE INVITAMOS A CELEBRAR LOS</div>
-        <div class="welcome-title">MIS XV AÑOS - YARETZI</div>
+        <div class="welcome-title">15 Años de Yaretzi</div>
         <button class="btn-enter" onclick="openInvitation()">✨ ABRIR INVITACIÓN ✉️</button>
     </div>
 
-    <!-- Fondo de Destellos y Burbujas -->
     <div class="stars-bg" id="starsBg"></div>
 
     <button class="music-btn" onclick="toggleAudio()" id="musicBtn">🎵</button>
     <audio id="bgAudio" loop src="cancion.mp3"></audio>
 
     <div class="card-container">
-        <div class="title-main">Mis XV Años</div>
+        <div class="moon-header">
+            <svg class="moon-svg" viewBox="0 0 200 200" style="width:100%; height:100%; filter: drop-shadow(0 0 12px rgba(212,175,55,0.8));">
+                <path d="M110 20 C60 20 20 60 20 110 C20 160 60 200 110 200 C80 185 65 150 65 110 C65 70 80 35 110 20 Z" fill="url(#goldGrad)" />
+                <path d="M40 90 Q10 80 20 60 Q40 70 40 90 Z" fill="#8ab4f8" opacity="0.9" />
+                <path d="M50 75 Q25 55 45 40 Q60 60 50 75 Z" fill="#b3d1ff" opacity="0.9" />
+                <path d="M130 90 Q160 80 150 60 Q130 70 130 90 Z" fill="#8ab4f8" opacity="0.9" />
+                <path d="M120 75 Q145 55 125 40 Q110 60 120 75 Z" fill="#b3d1ff" opacity="0.9" />
+                <g transform="translate(85, 80)">
+                    <circle cx="-20" cy="10" r="10" fill="#ffffff" />
+                    <circle cx="0" cy="-5" r="12" fill="#f8fafc" />
+                    <circle cx="20" cy="10" r="10" fill="#ffffff" />
+                    <circle cx="-10" cy="20" r="9" fill="#f1f5f9" />
+                    <circle cx="10" cy="20" r="9" fill="#f1f5f9" />
+                    <circle cx="0" cy="-5" r="4" fill="#d4af37" />
+                    <circle cx="-20" cy="10" r="3" fill="#d4af37" />
+                    <circle cx="20" cy="10" r="3" fill="#d4af37" />
+                </g>
+                <defs>
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fff2a8" />
+                        <stop offset="50%" stop-color="#d4af37" />
+                        <stop offset="100%" stop-color="#8a6d0b" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="title-sub">MIS XV AÑOS</div>
         <div class="name">Yaretzi</div>
 
-        <div class="divider-gold">❖ ❖ ❖</div>
+        <div class="section-box">
+            <div class="label" id="labelTipo">📅 Invitada</div>
+            <div class="value" id="invitadoNombre">Antonia Dorantes</div>
+        </div>
 
-        <div class="label-gold" id="labelTipo">Invitada</div>
-        <div class="value-white" id="invitadoNombre">Antonia Dorantes</div>
+        <div class="section-box">
+            <div class="label">👨‍👩‍👧 Mis padres</div>
+            <div class="value">Pablo Orozco y Claudia Pacheco</div>
+        </div>
+
+        <div class="section-box">
+            <div class="label">🥂 Padrinos</div>
+            <div class="value">Manuel Ferraez y Alma Pacheco</div>
+        </div>
 
         <div class="quote">
-            “Hay momentos en la vida que son inolvidables,<br>
-            y compartirlos con los que más quiero<br>
-            los hace más especiales.”
+            “Hay momentos en la vida que son inolvidables<br>
+            y compartirlos con los que más quiero los hace<br>
+            más especiales”
         </div>
 
-        <div class="divider-gold">❖</div>
+        <div class="section-box">
+            <div class="label">🗓 Fecha</div>
+            <div class="value" style="font-size: 1.25rem;">20 de Febrero de 2027</div>
+        </div>
 
-        <div class="info-list">
-            <div class="info-item">
-                <div class="info-icon">📅</div>
-                <div>
-                    <div class="info-text-title">Fecha:</div>
-                    <div class="info-text-detail">20 de febrero de 2027</div>
-                </div>
+        <div class="details-grid">
+            <div class="detail-item">
+                <div class="label">⛪ Misa</div>
+                <div class="time">18:00 hrs</div>
             </div>
-
-            <div class="info-item">
-                <div class="info-icon">🕒</div>
-                <div>
-                    <div class="info-text-title">Misa:</div>
-                    <div class="info-text-detail">18:00 hrs</div>
-                </div>
-            </div>
-
-            <div class="info-item">
-                <div class="info-icon">🕒</div>
-                <div>
-                    <div class="info-text-title">Recepción:</div>
-                    <div class="info-text-detail">19:00 hrs</div>
-                </div>
-            </div>
-
-            <div class="info-item">
-                <div class="info-icon">📍</div>
-                <div>
-                    <div class="info-text-title">Sala de fiestas:</div>
-                    <div class="info-text-detail">Los Ceibos</div>
-                    <div class="address-sub">Calle 50 x 149 y 151 • Cinco Colonias</div>
-                </div>
+            <div class="detail-item">
+                <div class="label">🥂 Recepción</div>
+                <div class="time">19:00 hrs</div>
             </div>
         </div>
+
+        <div class="location-title">📍 Sala de fiestas Los Ceibos</div>
+        <div class="location-address">Calle 50 x 149 y 151 • Cinco Colonias</div>
 
         <a href="https://maps.google.com/?q=Sala+de+fiestas+Los+Ceibos+Cinco+Colonias" target="_blank" class="btn-map">VER UBICACIÓN EN MAPS</a>
 
-        <div class="divider-gold">❖</div>
-
-        <div class="footer-banner">Contamos con tu presencia</div>
+        <div>
+            <div class="footer-banner">Contamos con tu presencia</div>
+        </div>
     </div>
 
     <script>
@@ -369,14 +355,14 @@
 
         if (tipoParam) {
             var tipoClean = decodeURIComponent(tipoParam.replace(/\+/g, ' '));
-            document.getElementById('labelTipo').innerText = tipoClean;
+            document.getElementById('labelTipo').innerText = '📅 ' + tipoClean;
         }
 
         var bg = document.getElementById('starsBg');
-        for (var i = 0; i < 22; i++) {
+        for (var i = 0; i < 20; i++) {
             var bubble = document.createElement('div');
             bubble.className = 'bubble';
-            var size = Math.random() * 20 + 10 + 'px';
+            var size = Math.random() * 22 + 10 + 'px';
             bubble.style.width = size;
             bubble.style.height = size;
             bubble.style.left = Math.random() * 100 + '%';
