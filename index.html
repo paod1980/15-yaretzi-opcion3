@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis XV Años - Yaretzi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: #120321;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Pantalla de Portada / Entrada */
+        #welcomeOverlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 30%, #2b0847 0%, #0d0118 85%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .welcome-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(230, 190, 80, 0.8);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .welcome-sub {
+            font-family: 'Cinzel', serif;
+            color: #e6be50;
+            letter-spacing: 4px;
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+        }
+
+        .btn-enter {
+            background: linear-gradient(135deg, #fff1b0 0%, #e6be50 50%, #997412 100%);
+            color: #120321;
+            font-weight: 700;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 35px;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            box-shadow: 0 0 25px rgba(230, 190, 80, 0.7);
+            cursor: pointer;
+            animation: pulseBtn 2s infinite;
+        }
+
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 190, 80, 0.6); }
+            50% { transform: scale(1.06); box-shadow: 0 0 30px rgba(230, 190, 80, 0.9); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 190, 80, 0.6); }
+        }
+
+        /* Capa de destellos y destellos de fondo */
+        .stars-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(circle at 50% 30%, #320b52 0%, #0d0118 90%);
+        }
+
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(240, 210, 255, 0.6), rgba(255, 255, 255, 0.05));
+            border: 1px solid rgba(230, 190, 80, 0.4);
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(210, 150, 255, 0.3);
+            animation: floatUp 7s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(105vh) scale(0.3); opacity: 0; }
+            30% { opacity: 0.9; }
+            80% { opacity: 0.7; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 5px; height: 5px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffe680, 0 0 15px #ffffff;
+            animation: twinkle 2.5s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.7); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        /* Tarjeta Principal Estilo Púrpura y Oro */
+        .card-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 420px;
+            background: linear-gradient(180deg, rgba(38, 8, 62, 0.92) 0%, rgba(18, 3, 33, 0.95) 100%);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(180, 100, 240, 0.2);
+        }
+
+        /* Marcos Filigrana de Oro Doble */
+        .card-container::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 2px solid #e6be50;
+            border-radius: 14px;
+            pointer-events: none;
+            box-shadow: inset 0 0 15px rgba(230, 190, 80, 0.3);
+        }
+
+        .card-container::after {
+            content: '';
+            position: absolute;
+            top: 16px; left: 16px; right: 16px; bottom: 16px;
+            border: 1px dashed rgba(230, 190, 80, 0.6);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        /* Encabezado con Luna y Flores de Lavanda */
+        .moon-header {
+            position: relative;
+            width: 160px;
+            height: 140px;
+            margin: 0 auto 10px auto;
+        }
+
+        .title-main {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: #e6be50;
+            text-shadow: 0 0 12px rgba(230, 190, 80, 0.6);
+            margin-top: 5px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .name {
+            font-family: 'Cinzel', serif;
+            font-size: 3.8rem;
+            color: #ffffff;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 10px #e6be50;
+            line-height: 1;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .divider-gold {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px 0;
+            color: #e6be50;
+            font-size: 1.2rem;
+        }
+
+        .divider-gold::before, .divider-gold::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e6be50, transparent);
+            margin: 0 10px;
+        }
+
+        .label-gold {
+            font-size: 1rem;
+            color: #e6be50;
+            font-weight: 700;
+            margin-bottom: 3px;
+        }
+
+        .value-white {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+            margin-bottom: 12px;
+        }
+
+        .quote {
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: #e3d2f5;
+            margin: 20px 10px;
+            line-height: 1.6;
+        }
+
+        .info-list {
+            text-align: left;
+            display: inline-block;
+            margin: 15px 0;
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #e6be50;
+            width: 30px;
+            text-align: center;
+        }
+
+        .info-text-title {
+            color: #e6be50;
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .info-text-detail {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .address-sub {
+            font-size: 0.82rem;
+            color: #c9b0e3;
+            margin-top: 2px;
+        }
+
+        .btn-map {
+            display: inline-block;
+            background: linear-gradient(135deg, #fff1b0 0%, #e6be50 50%, #997412 100%);
+            color: #120321;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(230, 190, 80, 0.6);
+            margin: 15px 0 20px 0;
+        }
+
+        .footer-banner {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.35rem;
+            color: #e6be50;
+            text-shadow: 0 0 10px rgba(230, 190, 80, 0.5);
+            margin-top: 10px;
+        }
+
+        .music-btn {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background: linear-gradient(135deg, #fff1b0, #e6be50);
+            color: #120321;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            box-shadow: 0 0 20px rgba(230, 190, 80, 0.8);
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Portada Inicial -->
+    <div id="welcomeOverlay">
+        <div class="welcome-sub">TE INVITAMOS A CELEBRAR LOS</div>
+        <div class="welcome-title">15 AÑOS DE YARETZI</div>
+        <button class="btn-enter" onclick="openInvitation()">✨ ABRIR INVITACIÓN ✉️</button>
+    </div>
+
+    <!-- Fondo de Destellos y Burbujas -->
+    <div class="stars-bg" id="starsBg"></div>
+
+    <button class="music-btn" onclick="toggleAudio()" id="musicBtn">🎵</button>
+    <audio id="bgAudio" loop src="cancion.mp3"></audio>
+
+    <div class="card-container">
+        <!-- Ilustración de Luna Dorada con Lavandas Púrpuras -->
+        <div class="moon-header">
+            <svg viewBox="0 0 200 160" style="width:100%; height:100%; filter: drop-shadow(0 0 12px rgba(230,190,80,0.8));">
+                <!-- Luna Dorada -->
+                <path d="M110 10 C65 10 30 45 30 90 C30 135 65 170 110 170 C80 155 65 125 65 90 C65 55 80 25 110 10 Z" fill="url(#goldGradPurp)" />
+                
+                <!-- Hojas y Flores Púrpuras/Lavanda -->
+                <path d="M45 80 Q20 60 30 40 Q50 55 45 80 Z" fill="#b38add" opacity="0.9" />
+                <path d="M55 65 Q35 45 50 30 Q65 50 55 65 Z" fill="#d8b4f8" opacity="0.9" />
+                <path d="M125 80 Q150 60 140 40 Q120 55 125 80 Z" fill="#b38add" opacity="0.9" />
+                
+                <!-- Flores de Lavanda Estilizadas -->
+                <g transform="translate(80, 65)">
+                    <circle cx="-15" cy="15" r="7" fill="#e3c2ff" />
+                    <circle cx="0" cy="0" r="9" fill="#ffffff" />
+                    <circle cx="15" cy="15" r="7" fill="#e3c2ff" />
+                    <circle cx="0" cy="0" r="3" fill="#e6be50" />
+                </g>
+
+                <defs>
+                    <linearGradient id="goldGradPurp" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#fff1b0" />
+                        <stop offset="50%" stop-color="#e6be50" />
+                        <stop offset="100%" stop-color="#997412" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="title-main">Mis XV Años</div>
+        <div class="name">Yaretzi</div>
+
+        <div class="divider-gold">❖ ❖ ❖</div>
+
+        <div class="label-gold" id="labelTipo">Invitada</div>
+        <div class="value-white" id="invitadoNombre">Antonia Dorantes</div>
+
+        <div class="quote">
+            “Hay momentos en la vida que son inolvidables,<br>
+            y compartirlos con los que más quiero<br>
+            los hace más especiales.”
+        </div>
+
+        <div class="divider-gold">❖</div>
+
+        <div class="info-list">
+            <div class="info-item">
+                <div class="info-icon">📅</div>
+                <div>
+                    <div class="info-text-title">Fecha:</div>
+                    <div class="info-text-detail">20 de febrero de 2027</div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🕒</div>
+                <div>
+                    <div class="info-text-title">Misa:</div>
+                    <div class="info-text-detail">18:00 hrs</div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🕒</div>
+                <div>
+                    <div class="info-text-title">Recepción:</div>
+                    <div class="info-text-detail">19:00 hrs</div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div>
+                    <div class="info-text-title">Sala de fiestas:</div>
+                    <div class="info-text-detail">Los Ceibos</div>
+                    <div class="address-sub">Calle 50 x 149 y 151 • Cinco Colonias</div>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://maps.google.com/?q=Sala+de+fiestas+Los+Ceibos+Cinco+Colonias" target="_blank" class="btn-map">VER UBICACIÓN EN MAPS</a>
+
+        <div class="divider-gold">❖</div>
+
+        <div class="footer-banner">Contamos con tu presencia</div>
+    </div>
+
+    <script>
+        // Lectura de parámetros de invitado
+        var params = new URLSearchParams(window.location.search);
+        var nombreParam = params.get('invitado');
+        var tipoParam = params.get('tipo');
+
+        if (nombreParam) {
+            var nombreDecodificado = decodeURIComponent(nombreParam.replace(/\+/g, ' '));
+            document.getElementById('invitadoNombre').innerText = nombreDecodificado;
+
+            if (!tipoParam) {
+                var minuscula = nombreDecodificado.toLowerCase();
+                if (minuscula.startsWith('familia') || minuscula.startsWith('fam.')) {
+                    tipoParam = 'Invitados';
+                }
+            }
+        }
+
+        if (tipoParam) {
+            var tipoClean = decodeURIComponent(tipoParam.replace(/\+/g, ' '));
+            document.getElementById('labelTipo').innerText = tipoClean;
+        }
+
+        // Animación de partículas y burbujas
+        var bg = document.getElementById('starsBg');
+        for (var i = 0; i < 22; i++) {
+            var bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            var size = Math.random() * 20 + 10 + 'px';
+            bubble.style.width = size;
+            bubble.style.height = size;
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.animationDelay = Math.random() * 6 + 's';
+            bg.appendChild(bubble);
+        }
+
+        for (var j = 0; j < 35; j++) {
+            var sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 3 + 's';
+            bg.appendChild(sparkle);
+        }
+
+        var audio = document.getElementById('bgAudio');
+        var isPlaying = false;
+
+        function openInvitation() {
+            var overlay = document.getElementById('welcomeOverlay');
+            overlay.style.opacity = '0';
+            setTimeout(function() {
+                overlay.style.visibility = 'hidden';
+            }, 800);
+
+            audio.play().then(function() {
+                isPlaying = true;
+                document.getElementById('musicBtn').innerHTML = "⏸️";
+            }).catch(function(e) {
+                console.log("Esperando reproducción", e);
+            });
+        }
+
+        function toggleAudio() {
+            var btn = document.getElementById('musicBtn');
+            if (isPlaying) {
+                audio.pause();
+                btn.innerHTML = "🎵";
+                isPlaying = false;
+            } else {
+                audio.play();
+                btn.innerHTML = "⏸️";
+                isPlaying = true;
+            }
+        }
+    </script>
+</body>
+</html>
