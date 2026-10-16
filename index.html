@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis XV Años - Yaretzi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: #06000c;
+            background: #040008;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 10px;
+            padding: 15px 10px;
             overflow-x: hidden;
             position: relative;
         }
@@ -37,8 +37,8 @@
         }
 
         .welcome-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.3rem;
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
             color: #ffffff;
             text-shadow: 0 0 20px rgba(230, 190, 80, 0.8);
             margin-bottom: 8px;
@@ -46,9 +46,9 @@
         }
 
         .welcome-sub {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cinzel', serif;
             color: #f1d378;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             font-size: 0.9rem;
             margin-bottom: 35px;
             font-weight: 600;
@@ -74,6 +74,7 @@
             100% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 190, 80, 0.6); }
         }
 
+        /* Estrellas y Burbujas de Fondo */
         .stars-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -113,45 +114,67 @@
             50% { opacity: 1; transform: scale(1.5); }
         }
 
+        /* TARJETA CON FONDO NÍCITO Y TOTAL */
         .card-wrapper {
             position: relative;
             z-index: 10;
             width: 100%;
             max-width: 440px;
-            border-radius: 20px;
+            border-radius: 22px;
             overflow: hidden;
             box-shadow: 0 0 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(180, 100, 240, 0.35);
             border: 3px solid #e6be50;
             padding: 40px 22px 40px 22px;
             text-align: center;
-            background: radial-gradient(circle at 50% 20%, #2f084f 0%, #10021c 100%);
+            
+            /* Aquí cargamos tu fondo.jpg cubriendo toda la tarjeta con alta calidad */
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Capa de contraste oscura muy ligera solo para que el texto resalte con claridad, sin volverse transparente */
+        .card-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(10, 2, 20, 0.65);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Todo el contenido se coloca encima de la capa oscura */
+        .card-wrapper > * {
+            position: relative;
+            z-index: 2;
         }
 
         .title-main {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 2.1rem;
             color: #f1d378;
-            text-shadow: 0 0 15px rgba(230, 190, 80, 0.9);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 15px rgba(230, 190, 80, 0.8);
             font-weight: 700;
-            letter-spacing: 2px;
-            margin-top: 10px;
+            letter-spacing: 1px;
+            margin-top: 5px;
         }
 
         .name {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: 3.4rem;
             color: #ffffff;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.9), 0 0 15px #e6be50;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.8);
             line-height: 1.1;
-            margin-bottom: 14px;
-            font-weight: 700;
+            margin-bottom: 12px;
+            font-weight: 900;
         }
 
         .divider-gold {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 16px 0;
+            margin: 14px 0;
             color: #e6be50;
             font-size: 1rem;
         }
@@ -168,38 +191,40 @@
             font-size: 0.95rem;
             color: #f1d378;
             font-weight: 700;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
         }
 
         .value-white {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
             margin-bottom: 8px;
         }
 
         .family-box {
-            background: rgba(16, 2, 28, 0.85);
-            border: 1px solid rgba(230, 190, 80, 0.4);
+            background: rgba(14, 2, 24, 0.88);
+            border: 1px solid rgba(230, 190, 80, 0.45);
             border-radius: 12px;
-            padding: 16px 14px;
-            margin: 16px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            padding: 14px 12px;
+            margin: 14px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
         .quote {
             font-style: italic;
             font-family: 'Playfair Display', serif;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             color: #e3d2f5;
-            margin: 18px 4px;
+            margin: 16px 4px;
             line-height: 1.5;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.9);
         }
 
         .info-list {
             text-align: left;
-            margin: 16px 0;
+            margin: 14px 0;
             width: 100%;
         }
 
@@ -207,11 +232,11 @@
             display: flex;
             align-items: center;
             margin-bottom: 12px;
-            background: rgba(16, 2, 28, 0.85);
+            background: rgba(14, 2, 24, 0.88);
             padding: 12px 14px;
             border-radius: 12px;
-            border: 1px solid rgba(230, 190, 80, 0.4);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border: 1px solid rgba(230, 190, 80, 0.45);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
         }
 
         .info-icon {
@@ -271,10 +296,11 @@
             font-style: italic;
             font-size: 1.3rem;
             color: #f1d378;
-            text-shadow: 0 0 10px rgba(230, 190, 80, 0.5);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
             margin-top: 12px;
         }
 
+        /* Botón de Música Flotante */
         .music-btn {
             position: fixed;
             bottom: 22px;
@@ -294,6 +320,7 @@
 </head>
 <body>
 
+    <!-- Portada de Bienvenida -->
     <div id="welcomeOverlay">
         <div class="welcome-sub">TE INVITAMOS A CELEBRAR</div>
         <div class="welcome-title">MIS XV AÑOS - YARETZI</div>
@@ -305,6 +332,7 @@
     <button class="music-btn" onclick="toggleAudio()" id="musicBtn">🎵</button>
     <audio id="bgAudio" loop src="cancion.mp3"></audio>
 
+    <!-- Tarjeta Principal con tu Fondo Personalizado -->
     <div class="card-wrapper">
         <div class="title-main">MIS XV AÑOS</div>
         <div class="name">Yaretzi</div>
@@ -314,6 +342,7 @@
         <div class="label-gold" id="labelTipo">Invitada</div>
         <div class="value-white" id="invitadoNombre">Antonia Dorantes</div>
 
+        <!-- Sección Padres y Padrinos -->
         <div class="family-box">
             <div class="label-gold">MIS PADRES</div>
             <div class="value-white" style="font-size: 1.05rem; margin-bottom: 8px;">Pablo Orozco y Claudia Pacheco</div>
@@ -332,6 +361,7 @@
 
         <div class="divider-gold">❖</div>
 
+        <!-- Lista de Eventos, Horarios y Direcciones -->
         <div class="info-list">
             <div class="info-item">
                 <div class="info-icon">📅</div>
@@ -368,9 +398,10 @@
             </div>
         </div>
 
+        <!-- Botones de Ubicación GPS -->
         <div class="btn-group">
             <a href="https://maps.google.com/?q=Esquina+con+Calle+54,+C.+133,+San+Jose+Tecoh,+97299+Merida,+Yuc." target="_blank" class="btn-map">⛪ UBICACIÓN DE LA IGLESIA</a>
-            <a href="https://maps.google.com/?q=Sala+de+fiestas+Los+Ceibos+Calle+50+Cinco+Colonias+Merida" target="_blank" class="btn-map">🎉 UBICACIÓN DEL LOCAL (LOS CEIBOS)</a>
+            <a href="https://maps.google.com/?q=Sala+de+fiestas+Los+Ceibos+Calle+50+Cinco+Colonias+Merida" target="_blank" class="btn-map">🎉 UBICACIÓN DEL LOCAL (Los Ceibos)</a>
         </div>
 
         <div class="divider-gold">❖</div>
