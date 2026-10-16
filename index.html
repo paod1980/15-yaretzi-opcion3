@@ -9,23 +9,22 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: #030007;
+            background: #020005;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 10px;
+            padding: 10px;
             overflow-x: hidden;
             position: relative;
         }
 
-        /* Pantalla de Entrada (Portada de Bienvenida) */
         #welcomeOverlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 30%, #101c38 0%, #030612 85%);
+            background: radial-gradient(circle at 50% 30%, #0e172e 0%, #02040a 90%);
             z-index: 999;
             display: flex;
             flex-direction: column;
@@ -33,14 +32,14 @@
             align-items: center;
             text-align: center;
             padding: 20px;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
+            transition: opacity 0.6s ease;
         }
 
         .welcome-title {
             font-family: 'Cinzel', serif;
             font-size: 2.3rem;
             color: #ffffff;
-            text-shadow: 0 0 20px rgba(230, 190, 80, 0.8);
+            text-shadow: 0 0 25px rgba(230, 190, 80, 0.9);
             margin-bottom: 8px;
             font-weight: 800;
         }
@@ -59,22 +58,21 @@
             color: #0d1b2a;
             font-weight: 800;
             border: none;
-            padding: 16px 36px;
+            padding: 16px 38px;
             border-radius: 35px;
             font-size: 1.05rem;
             letter-spacing: 1px;
-            box-shadow: 0 0 25px rgba(230, 190, 80, 0.7);
+            box-shadow: 0 0 30px rgba(230, 190, 80, 0.8);
             cursor: pointer;
             animation: pulseBtn 2s infinite;
         }
 
         @keyframes pulseBtn {
             0% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 190, 80, 0.6); }
-            50% { transform: scale(1.06); box-shadow: 0 0 30px rgba(230, 190, 80, 0.9); }
+            50% { transform: scale(1.06); box-shadow: 0 0 35px rgba(230, 190, 80, 0.95); }
             100% { transform: scale(1); box-shadow: 0 0 20px rgba(230, 190, 80, 0.6); }
         }
 
-        /* Estrellas y Burbujas Mágicas de Fondo */
         .stars-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -84,11 +82,11 @@
 
         .bubble {
             position: absolute;
-            background: radial-gradient(circle at 30% 30%, rgba(150, 200, 255, 0.5), rgba(255, 255, 255, 0.05));
+            background: radial-gradient(circle at 30% 30%, rgba(160, 210, 255, 0.5), rgba(255, 255, 255, 0.05));
             border: 1px solid rgba(230, 190, 80, 0.3);
             border-radius: 50%;
             box-shadow: 0 0 12px rgba(100, 180, 255, 0.2);
-            animation: floatUp 7s infinite ease-in-out;
+            animation: floatUp 8s infinite ease-in-out;
             pointer-events: none;
         }
 
@@ -101,7 +99,7 @@
 
         .sparkle {
             position: absolute;
-            width: 5px; height: 5px;
+            width: 4px; height: 4px;
             background: #ffffff;
             border-radius: 50%;
             box-shadow: 0 0 10px #ffe680, 0 0 15px #ffffff;
@@ -114,28 +112,53 @@
             50% { opacity: 1; transform: scale(1.5); }
         }
 
-        /* TARJETA PRINCIPAL: Fondo Azul Marino Sólido y Elegante */
         .card-wrapper {
             position: relative;
             z-index: 10;
             width: 100%;
             max-width: 440px;
-            border-radius: 22px;
+            border-radius: 26px;
             overflow: hidden;
-            box-shadow: 0 0 60px rgba(0, 0, 0, 0.95), 0 0 30px rgba(30, 80, 160, 0.4);
-            border: 3px solid #e6be50;
-            padding: 40px 22px 40px 22px;
+            box-shadow: 0 0 90px rgba(0, 0, 0, 0.98), 0 0 45px rgba(30, 70, 150, 0.5);
+            padding: 46px 24px;
             text-align: center;
-            
-            /* Fondo Azul Marino Profundo Sólido (Cero transparencia en la tarjeta general) */
-            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #0d1b2a 100%);
+            background: linear-gradient(135deg, #070a14 0%, #111a2e 50%, #070a14 100%);
+            border: 3px solid #e6be50;
+            outline: 2px solid #b89235;
+            outline-offset: -8px;
+        }
+
+        .corner-photo {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            pointer-events: none;
+            z-index: 6;
+            background-image: url('https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?auto=compress&cs=tinysrgb&w=600');
+            background-size: cover;
+            background-position: center;
+            mix-blend-mode: screen;
+            filter: hue-rotate(210deg) saturate(110%) brightness(45%) contrast(130%);
+            -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 68%);
+            mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 68%);
+            opacity: 0.55;
+        }
+
+        .corner-tl { top: -25px; left: -25px; }
+        .corner-tr { top: -25px; right: -25px; transform: scaleX(-1); }
+        .corner-bl { bottom: -25px; left: -25px; } 
+        .corner-br { bottom: -25px; right: -25px; transform: scaleX(-1); }
+
+        .card-content {
+            position: relative;
+            z-index: 8;
         }
 
         .title-main {
             font-family: 'Cinzel', serif;
             font-size: 2.1rem;
             color: #f1d378;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.9);
             font-weight: 700;
             letter-spacing: 2px;
             margin-top: 10px;
@@ -143,9 +166,9 @@
 
         .name {
             font-family: 'Alex Brush', cursive;
-            font-size: 4.2rem;
+            font-size: 4.3rem;
             color: #ffffff;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 10px #e6be50;
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 15px #e6be50, 0 3px 12px rgba(0,0,0,1);
             line-height: 1.1;
             margin-bottom: 14px;
             font-weight: 400;
@@ -180,16 +203,32 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
+        }
+
+        /* RECUADRO ELEGANTE PARA LOS PASES */
+        .pases-box {
+            display: inline-block;
+            background: rgba(230, 190, 80, 0.12);
+            border: 1px solid rgba(230, 190, 80, 0.6);
+            border-radius: 20px;
+            padding: 6px 18px;
+            margin-top: 6px;
+            margin-bottom: 10px;
+            color: #f1d378;
+            font-size: 0.92rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 12px rgba(230, 190, 80, 0.2);
         }
 
         .family-box {
-            background: rgba(13, 27, 42, 0.95);
+            background: rgba(10, 20, 35, 0.95);
             border: 1px solid rgba(230, 190, 80, 0.5);
             border-radius: 12px;
             padding: 16px 14px;
             margin: 16px 0;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
         }
 
         .quote {
@@ -212,11 +251,11 @@
             display: flex;
             align-items: center;
             margin-bottom: 12px;
-            background: rgba(13, 27, 42, 0.95);
+            background: rgba(10, 20, 35, 0.95);
             padding: 12px 14px;
             border-radius: 12px;
             border: 1px solid rgba(230, 190, 80, 0.5);
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
         }
 
         .info-icon {
@@ -312,82 +351,94 @@
     <audio id="bgAudio" loop src="cancion.mp3"></audio>
 
     <div class="card-wrapper">
-        <div class="title-main">MIS XV AÑOS</div>
-        <div class="name">Yaretzi</div>
 
-        <div class="divider-gold">❖ ❖ ❖</div>
+        <div class="corner-photo corner-tl"></div>
+        <div class="corner-photo corner-tr"></div>
+        <div class="corner-photo corner-bl"></div>
+        <div class="corner-photo corner-br"></div>
 
-        <div class="label-gold" id="labelTipo">Invitada</div>
-        <div class="value-white" id="invitadoNombre">Antonia Dorantes</div>
+        <div class="card-content">
+            <div class="title-main">MIS XV AÑOS</div>
+            <div class="name">Yaretzi</div>
 
-        <div class="family-box">
-            <div class="label-gold">MIS PADRES</div>
-            <div class="value-white" style="font-size: 1.05rem; margin-bottom: 8px;">Pablo Orozco y Claudia Pacheco</div>
+            <div class="divider-gold">❖ ❖ ❖</div>
+
+            <div class="label-gold" id="labelTipo">Invitada</div>
+            <div class="value-white" id="invitadoNombre">Antonia Dorantes</div>
             
-            <div class="divider-gold" style="margin: 6px 0;">❖</div>
+            <!-- CONTENEDOR DE PASES -->
+            <div class="pases-box" id="pasesContainer">🎟️ Pase válido para: <span id="numPases">1 persona</span></div>
 
-            <div class="label-gold">MIS PADRINOS</div>
-            <div class="value-white" style="font-size: 1.05rem; margin-bottom: 0;">Manuel Ferraez y Alma Pacheco</div>
-        </div>
+            <div class="family-box">
+                <div class="label-gold">MIS PADRES</div>
+                <div class="value-white" style="font-size: 1.05rem; margin-bottom: 8px;">Pablo Orozco y Claudia Pacheco</div>
+                
+                <div class="divider-gold" style="margin: 6px 0;">❖</div>
 
-        <div class="quote">
-            “Hay momentos en la vida que son inolvidables,<br>
-            y compartirlos con los que más quiero<br>
-            los hace más especiales.”
-        </div>
+                <div class="label-gold">MIS PADRINOS</div>
+                <div class="value-white" style="font-size: 1.05rem; margin-bottom: 0;">Manuel Ferraez y Alma Pacheco</div>
+            </div>
 
-        <div class="divider-gold">❖</div>
+            <div class="quote">
+                “Hay momentos en la vida que son inolvidables,<br>
+                y compartirlos con los que más quiero<br>
+                los hace más especiales.”
+            </div>
 
-        <div class="info-list">
-            <div class="info-item">
-                <div class="info-icon">📅</div>
-                <div>
-                    <div class="info-text-title">Fecha:</div>
-                    <div class="info-text-detail">20 de febrero de 2027</div>
+            <div class="divider-gold">❖</div>
+
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-icon">📅</div>
+                    <div>
+                        <div class="info-text-title">Fecha:</div>
+                        <div class="info-text-detail">20 de febrero de 2027</div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">⛪</div>
+                    <div>
+                        <div class="info-text-title">Misa:</div>
+                        <div class="info-text-detail">18:00 hrs</div>
+                        <div class="address-sub">Esquina con Calle 54, C. 133, San José Tecoh, Mérida, Yuc.</div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">🎉</div>
+                    <div>
+                        <div class="info-text-title">Recepción:</div>
+                        <div class="info-text-detail">19:00 hrs</div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div>
+                        <div class="info-text-title">Sala de fiestas:</div>
+                        <div class="info-text-detail">Los Ceibos</div>
+                        <div class="address-sub">Calle 50 x 149 y 151 • Cinco Colonias, Mérida, Yuc.</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="info-item">
-                <div class="info-icon">⛪</div>
-                <div>
-                    <div class="info-text-title">Misa:</div>
-                    <div class="info-text-detail">18:00 hrs</div>
-                    <div class="address-sub">Esquina con Calle 54, C. 133, San José Tecoh, Mérida, Yuc.</div>
-                </div>
+            <div class="btn-group">
+                <a href="https://maps.google.com/?q=Esquina+con+Calle+54,+C.+133,+San+Jose+Tecoh,+97299+Merida,+Yuc." target="_blank" class="btn-map">⛪ UBICACIÓN DE LA IGLESIA</a>
+                <a href="https://maps.google.com/?q=Sala+de+fiestas+Los+Ceibos+Calle+50+Cinco+Colonias+Merida" target="_blank" class="btn-map">🎉 UBICACIÓN DEL LOCAL (Los Ceibos)</a>
             </div>
 
-            <div class="info-item">
-                <div class="info-icon">🎉</div>
-                <div>
-                    <div class="info-text-title">Recepción:</div>
-                    <div class="info-text-detail">19:00 hrs</div>
-                </div>
-            </div>
+            <div class="divider-gold">❖</div>
 
-            <div class="info-item">
-                <div class="info-icon">📍</div>
-                <div>
-                    <div class="info-text-title">Sala de fiestas:</div>
-                    <div class="info-text-detail">Los Ceibos</div>
-                    <div class="address-sub">Calle 50 x 149 y 151 • Cinco Colonias, Mérida, Yuc.</div>
-                </div>
-            </div>
+            <div class="footer-banner">Contamos con tu presencia</div>
         </div>
-
-        <div class="btn-group">
-            <a href="https://maps.google.com/?q=Esquina+con+Calle+54,+C.+133,+San+Jose+Tecoh,+97299+Merida,+Yuc." target="_blank" class="btn-map">⛪ UBICACIÓN DE LA IGLESIA</a>
-            <a href="https://maps.google.com/?q=Sala+de+fiestas+Los+Ceibos+Calle+50+Cinco+Colonias+Merida" target="_blank" class="btn-map">🎉 UBICACIÓN DEL LOCAL (Los Ceibos)</a>
-        </div>
-
-        <div class="divider-gold">❖</div>
-
-        <div class="footer-banner">Contamos con tu presencia</div>
     </div>
 
     <script>
         var params = new URLSearchParams(window.location.search);
         var nombreParam = params.get('invitado');
         var tipoParam = params.get('tipo');
+        var pasesParam = params.get('pases');
 
         if (nombreParam) {
             var nombreDecodificado = decodeURIComponent(nombreParam.replace(/\+/g, ' '));
@@ -404,6 +455,23 @@
         if (tipoParam) {
             var tipoClean = decodeURIComponent(tipoParam.replace(/\+/g, ' '));
             document.getElementById('labelTipo').innerText = tipoClean;
+        }
+
+        // LÓGICA DE PASES
+        if (pasesParam) {
+            var cant = parseInt(pasesParam, 10);
+            if (!isNaN(cant) && cant > 0) {
+                if (cant === 1) {
+                    document.getElementById('numPases').innerText = "1 persona";
+                } else {
+                    document.getElementById('numPases').innerText = cant + " personas";
+                }
+            } else {
+                document.getElementById('numPases').innerText = pasesParam + " personas";
+            }
+        } else {
+            // Si no especificas pases en la URL, se asume 1 persona por defecto
+            document.getElementById('numPases').innerText = "1 persona";
         }
 
         var bg = document.getElementById('starsBg');
@@ -434,14 +502,14 @@
             var overlay = document.getElementById('welcomeOverlay');
             overlay.style.opacity = '0';
             setTimeout(function() {
-                overlay.style.visibility = 'hidden';
-            }, 800);
+                overlay.style.display = 'none';
+            }, 600);
 
             audio.play().then(function() {
                 isPlaying = true;
                 document.getElementById('musicBtn').innerHTML = "⏸️";
             }).catch(function(e) {
-                console.log("Esperando interacción", e);
+                console.log("Reproducción automática bloqueada", e.message);
             });
         }
 
@@ -453,7 +521,7 @@
                 isPlaying = false;
             } else {
                 audio.play();
-                btn.innerHTML = "⏸️";
+                btn.innerHTML = "🎵";
                 isPlaying = true;
             }
         }
