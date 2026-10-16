@@ -9,7 +9,15 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: #020005;
+            /* FONDO CON IMAGEN DE TEXTURA REAL DE ACUARELA PÚRPURA Y DESTELLOS DE ORO DE ALTA RESOLUCIÓN */
+            background-color: #0d001a;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(35, 5, 55, 0.4) 0%, rgba(8, 0, 18, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: #ffffff;
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
@@ -24,7 +32,7 @@
         #welcomeOverlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 30%, #0e172e 0%, #02040a 90%);
+            background: radial-gradient(circle at 50% 30%, #250538 0%, #080010 90%);
             z-index: 999;
             display: flex;
             flex-direction: column;
@@ -80,38 +88,52 @@
             z-index: 1;
         }
 
+        /* EFECTO BOKEH Y PARTÍCULAS DORADAS SOBREPUESTAS */
         .bubble {
             position: absolute;
-            background: radial-gradient(circle at 30% 30%, rgba(160, 210, 255, 0.5), rgba(255, 255, 255, 0.05));
-            border: 1px solid rgba(230, 190, 80, 0.3);
+            background: radial-gradient(circle at 35% 35%, rgba(255, 225, 130, 0.85), rgba(210, 150, 30, 0.15));
+            border: 1px solid rgba(255, 235, 160, 0.6);
             border-radius: 50%;
-            box-shadow: 0 0 12px rgba(100, 180, 255, 0.2);
+            box-shadow: 0 0 22px rgba(255, 215, 0, 0.6);
             animation: floatUp 8s infinite ease-in-out;
             pointer-events: none;
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(105vh) scale(0.3); opacity: 0; }
-            30% { opacity: 0.8; }
-            80% { opacity: 0.6; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+            0% { transform: translateY(105vh) scale(0.2); opacity: 0; }
+            25% { opacity: 0.95; }
+            80% { opacity: 0.75; }
+            100% { transform: translateY(-10vh) scale(1.4); opacity: 0; }
         }
 
         .sparkle {
             position: absolute;
-            width: 4px; height: 4px;
+            width: 3px; height: 3px;
             background: #ffffff;
             border-radius: 50%;
-            box-shadow: 0 0 10px #ffe680, 0 0 15px #ffffff;
-            animation: twinkle 2.5s infinite ease-in-out;
+            box-shadow: 0 0 10px #ffd700, 0 0 16px #ffffff;
+            animation: twinkle 2.8s infinite ease-in-out;
             pointer-events: none;
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; transform: scale(0.7); }
-            50% { opacity: 1; transform: scale(1.5); }
+        .sparkle.gold-dust {
+            width: 5px; height: 5px;
+            background: #ffe57f;
+            box-shadow: 0 0 14px #ffb300, 0 0 22px #fff59d;
         }
 
+        .sparkle.big-flare {
+            width: 8px; height: 8px;
+            background: #fff8e1;
+            box-shadow: 0 0 22px #ffd700, 0 0 38px #ffffff, 0 0 50px rgba(255, 215, 0, 0.9);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.15; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.8); }
+        }
+
+        /* TARJETA CRISTALINA SEMI-TRANSPARENTE PARA MOSTRAR LA TEXTURA PÚRPURA DE FONDO */
         .card-wrapper {
             position: relative;
             z-index: 10;
@@ -119,15 +141,19 @@
             max-width: 440px;
             border-radius: 26px;
             overflow: hidden;
-            box-shadow: 0 0 90px rgba(0, 0, 0, 0.98), 0 0 45px rgba(30, 70, 150, 0.5);
+            box-shadow: 0 0 90px rgba(0, 0, 0, 0.98), 0 0 60px rgba(90, 10, 120, 0.8);
             padding: 46px 24px;
             text-align: center;
-            background: linear-gradient(135deg, #070a14 0%, #111a2e 50%, #070a14 100%);
+            /* Fondo semi-transparente traslúcido para integrarse con la textura púrpura */
+            background: rgba(14, 3, 25, 0.78);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 3px solid #e6be50;
             outline: 2px solid #b89235;
             outline-offset: -8px;
         }
 
+        /* FLORES AZUL MARINO INTACTAS */
         .corner-photo {
             position: absolute;
             width: 200px;
@@ -206,11 +232,10 @@
             margin-bottom: 4px;
         }
 
-        /* RECUADRO ELEGANTE PARA LOS PASES */
         .pases-box {
             display: inline-block;
-            background: rgba(230, 190, 80, 0.12);
-            border: 1px solid rgba(230, 190, 80, 0.6);
+            background: rgba(230, 190, 80, 0.15);
+            border: 1px solid rgba(230, 190, 80, 0.7);
             border-radius: 20px;
             padding: 6px 18px;
             margin-top: 6px;
@@ -219,11 +244,11 @@
             font-size: 0.92rem;
             font-weight: 600;
             letter-spacing: 0.5px;
-            box-shadow: 0 0 12px rgba(230, 190, 80, 0.2);
+            box-shadow: 0 0 12px rgba(230, 190, 80, 0.3);
         }
 
         .family-box {
-            background: rgba(10, 20, 35, 0.95);
+            background: rgba(22, 6, 38, 0.88);
             border: 1px solid rgba(230, 190, 80, 0.5);
             border-radius: 12px;
             padding: 16px 14px;
@@ -251,7 +276,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 12px;
-            background: rgba(10, 20, 35, 0.95);
+            background: rgba(22, 6, 38, 0.88);
             padding: 12px 14px;
             border-radius: 12px;
             border: 1px solid rgba(230, 190, 80, 0.5);
@@ -366,7 +391,6 @@
             <div class="label-gold" id="labelTipo">Invitada</div>
             <div class="value-white" id="invitadoNombre">Antonia Dorantes</div>
             
-            <!-- CONTENEDOR DE PASES -->
             <div class="pases-box" id="pasesContainer">🎟️ Pase válido para: <span id="numPases">1 persona</span></div>
 
             <div class="family-box">
@@ -457,7 +481,6 @@
             document.getElementById('labelTipo').innerText = tipoClean;
         }
 
-        // LÓGICA DE PASES
         if (pasesParam) {
             var cant = parseInt(pasesParam, 10);
             if (!isNaN(cant) && cant > 0) {
@@ -470,28 +493,34 @@
                 document.getElementById('numPases').innerText = pasesParam + " personas";
             }
         } else {
-            // Si no especificas pases en la URL, se asume 1 persona por defecto
             document.getElementById('numPases').innerText = "1 persona";
         }
 
         var bg = document.getElementById('starsBg');
-        for (var i = 0; i < 22; i++) {
+        for (var i = 0; i < 35; i++) {
             var bubble = document.createElement('div');
             bubble.className = 'bubble';
-            var size = Math.random() * 20 + 10 + 'px';
+            var size = Math.random() * 28 + 10 + 'px';
             bubble.style.width = size;
             bubble.style.height = size;
             bubble.style.left = Math.random() * 100 + '%';
-            bubble.style.animationDelay = Math.random() * 6 + 's';
+            bubble.style.animationDelay = Math.random() * 7 + 's';
             bg.appendChild(bubble);
         }
 
-        for (var j = 0; j < 35; j++) {
+        for (var j = 0; j < 110; j++) {
             var sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
+            var rand = Math.random();
+            if (rand > 0.85) {
+                sparkle.className = 'sparkle big-flare';
+            } else if (rand > 0.4) {
+                sparkle.className = 'sparkle gold-dust';
+            } else {
+                sparkle.className = 'sparkle';
+            }
             sparkle.style.left = Math.random() * 100 + '%';
             sparkle.style.top = Math.random() * 100 + '%';
-            sparkle.style.animationDelay = Math.random() * 3 + 's';
+            sparkle.style.animationDelay = Math.random() * 4 + 's';
             bg.appendChild(sparkle);
         }
 
@@ -521,7 +550,7 @@
                 isPlaying = false;
             } else {
                 audio.play();
-                btn.innerHTML = "🎵";
+                btn.innerHTML = "⏸️";
                 isPlaying = true;
             }
         }
